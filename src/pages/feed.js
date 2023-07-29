@@ -19,10 +19,6 @@ export default function Feed() {
             sort: (post) => post.createdAt(SortDirection.DESCENDING),
           });
           setPost(posts);
-          console.log(
-            "Posts retrieved successfully!",
-            JSON.stringify(posts, null, 2)
-          );
         } catch (error) {
           console.log("Error retrieving posts", error);
         }

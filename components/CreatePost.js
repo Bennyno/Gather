@@ -27,7 +27,6 @@ export default function CreatePost() {
 
     if (user) {
       setAuthor(user.username);
-      console.log("current auth user: ", authUser);
 
       const { results } = await Storage.list("", { level: "private" });
       const sortedResults = results.sort(

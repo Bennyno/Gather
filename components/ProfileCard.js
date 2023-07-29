@@ -27,7 +27,6 @@ export default function ProfileCard() {
   const fetchImages = async () => {
     const authUser = await Auth.currentAuthenticatedUser();
     const userId = authUser.attributes.sub;
-    console.log(userId);
     const authEmail = authUser.attributes.email;
     const original = await DataStore.query(Users);
 
@@ -38,14 +37,13 @@ export default function ProfileCard() {
         (a, b) => a.lastModified - b.lastModified
       );
 
-      console.log(results);
       setImageKeys(results);
       const s3Images = await Promise.all(
         sortedResults.map(
           async (image) => await Storage.get(image.key, { level: "private" })
         )
       );
-      console.log("image", s3Images);
+
       const s3Image = s3Images[s3Images.length - 1];
       setImage(s3Image);
 
@@ -62,7 +60,6 @@ export default function ProfileCard() {
   const createOrUpdateDBUser = async () => {
     const authUser = await Auth.currentAuthenticatedUser();
     const authEmail = authUser.attributes.email;
-    console.log(authEmail);
 
     if (authUser) {
       const users = await DataStore.query(Users);
@@ -78,7 +75,6 @@ export default function ProfileCard() {
           })
         );
         setUser(updateUser);
-        console.log("users ID", userID);
       } else {
         const newUser = await DataStore.save(
           new Users({
@@ -89,7 +85,6 @@ export default function ProfileCard() {
           })
         );
         setUser(newUser);
-        console.log("new user created", user);
       }
     }
 

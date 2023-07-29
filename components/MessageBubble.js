@@ -23,8 +23,6 @@ const MessageBubble = ({ id, name, message, messageTime, messageDate }) => {
     if (name === dbUsername) {
       setDeleteButtonClicked(!deleteButtonClicked);
     }
-
-    console.log(name);
   };
 
   const deletePost = async () => {

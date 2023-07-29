@@ -75,8 +75,6 @@ export default function Post({
     if (author === dbUsername) {
       setDeleteButtonClicked(!deleteButtonClicked);
     }
-
-    console.log(author);
   };
 
   const deletePost = async () => {

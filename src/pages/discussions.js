@@ -19,10 +19,6 @@ const Discussions = () => {
             sort: (post) => post.createdAt(SortDirection.DESCENDING),
           });
           setMessage(dbMessages);
-          console.log(
-            "Messages retrieved successfully!",
-            JSON.stringify(dbMessages, null, 2)
-          );
 
           DataStore.observe(Message).subscribe((updatedDbMessages) => {
             if (
@@ -30,7 +26,6 @@ const Discussions = () => {
               updatedDbMessages.opType === "CREATE" ||
               updatedDbMessages.opType === "DELETE"
             ) {
-              console.log(updatedDbMessages.opType);
               getMessages();
             }
           });
