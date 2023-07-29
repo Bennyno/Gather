@@ -7,7 +7,7 @@ import { Message } from "@/models";
 import { useState, useEffect } from "react";
 import { DataStore, Predicates, SortDirection, Auth } from "aws-amplify";
 
-const Messages = () => {
+const Discussions = () => {
   const [message, setMessage] = useState([]);
 
   useEffect(() => {
@@ -66,4 +66,4 @@ const Messages = () => {
   );
 };
 
-export default Messages;
+export default Discussions;

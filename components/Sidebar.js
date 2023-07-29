@@ -265,7 +265,7 @@ const Sidebar = () => {
                 shrink="0"
                 position="relative"
                 className={styles.sidebarOption}
-                onClick={() => router.push("/messages")}
+                onClick={() => router.push("/discussions")}
               >
                 <Flex
                   width="24px"
