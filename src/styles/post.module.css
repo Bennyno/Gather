@@ -1,0 +1,23 @@
+.postBody {
+    background: black;
+    border: solid white;
+}
+
+.postIcons:hover {
+    z-index: 50;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.deleteButton {
+    width: 65px;
+    height: 22px;
+    border-radius: 40px;
+    background-color: #0072F5;
+    color: white;
+    margin-right: 10px;
+}
+
+.likeButton {
+    fill: white;
+}
