@@ -25,21 +25,23 @@ export default function CreatePost() {
 
     const user = users.find((user) => user.email === authEmail);
 
-    if (user) {
-      setAuthor(user.username);
+    if (authUser) {
+      if (user) {
+        setAuthor(user.username);
 
-      const { results } = await Storage.list("", { level: "private" });
-      const sortedResults = results.sort(
-        (a, b) => a.lastModified - b.lastModified
-      );
+        const { results } = await Storage.list("", { level: "private" });
+        const sortedResults = results.sort(
+          (a, b) => a.lastModified - b.lastModified
+        );
 
-      const s3Images = await Promise.all(
-        sortedResults.map(
-          async (image) => await Storage.get(image.key, { level: "private" })
-        )
-      );
-      const s3Image = s3Images[s3Images.length - 1];
-      setImage(s3Image);
+        const s3Images = await Promise.all(
+          sortedResults.map(
+            async (image) => await Storage.get(image.key, { level: "private" })
+          )
+        );
+        const s3Image = s3Images[s3Images.length - 1];
+        setImage(s3Image);
+      }
     }
 
     if (message === "") return;

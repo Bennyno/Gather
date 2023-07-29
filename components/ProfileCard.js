@@ -64,11 +64,11 @@ export default function ProfileCard() {
     if (authUser) {
       const users = await DataStore.query(Users);
       const user = users.find((user) => user.email === authEmail);
-      const userID = users.map((user) => user.id);
+      const index = users.indexOf(user);
 
-      if (user && userID) {
+      if (user) {
         const updateUser = await DataStore.save(
-          Users.copyOf(users[users.length - 1], (updated) => {
+          Users.copyOf(users[index], (updated) => {
             updated.name = name;
             updated.username = username;
             updated.image = image;
