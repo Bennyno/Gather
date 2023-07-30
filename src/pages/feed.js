@@ -39,27 +39,25 @@ export default function Feed() {
   }, []);
 
   return (
-    <>
-      <Grid templateColumns="1fr 3fr" className={styles.feedBody}>
-        <View className={styles.sidebar}>
-          <Sidebar />
+    <Grid templateColumns="1fr 3fr">
+      <View className={styles.sidebar}>
+        <Sidebar />
+      </View>
+      <View className={styles.feedCenter}>
+        <View display="flex" justifyContent="center">
+          <CreatePost />
         </View>
-        <View className={styles.feedCenter}>
-          <View display="flex" justifyContent="center">
-            <CreatePost />
-          </View>
-          <Collection
-            items={post}
-            maxWidth="600px"
-            margin="0 auto"
-            justifyContent="center"
-            gap="small"
-            marginTop="20px"
-          >
-            {(item, index) => <Post key={index} {...item}></Post>}
-          </Collection>
-        </View>
-      </Grid>
-    </>
+        <Collection
+          items={post}
+          maxWidth="600px"
+          margin="0 auto"
+          justifyContent="center"
+          gap="small"
+          marginTop="20px"
+        >
+          {(item, index) => <Post key={index} {...item}></Post>}
+        </Collection>
+      </View>
+    </Grid>
   );
 }

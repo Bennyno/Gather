@@ -39,27 +39,25 @@ const Discussions = () => {
   }, []);
 
   return (
-    <View className={styles.discussionBody}>
-      <Grid templateColumns="1fr 2fr 0.5fr">
-        <View className={styles.sidebar}>
-          <Sidebar />
-        </View>
-        <View className={styles.discussionCenter}>
-          <MessageBox />
-          <Collection
-            items={message}
-            width="600px"
-            justifyContent="center"
-            gap="small"
-            marginTop="20px"
-          >
-            {(item, index) => (
-              <MessageBubble key={index} {...item}></MessageBubble>
-            )}
-          </Collection>
-        </View>
-      </Grid>
-    </View>
+    <Grid templateColumns="1fr 2fr 0.5fr">
+      <View className={styles.sidebar}>
+        <Sidebar />
+      </View>
+      <View className={styles.discussionCenter}>
+        <MessageBox />
+        <Collection
+          items={message}
+          width="600px"
+          justifyContent="center"
+          gap="small"
+          marginTop="20px"
+        >
+          {(item, index) => (
+            <MessageBubble key={index} {...item}></MessageBubble>
+          )}
+        </Collection>
+      </View>
+    </Grid>
   );
 };
 
