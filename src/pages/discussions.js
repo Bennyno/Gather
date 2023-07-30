@@ -19,16 +19,6 @@ const Discussions = () => {
             sort: (post) => post.createdAt(SortDirection.DESCENDING),
           });
           setMessage(dbMessages);
-
-          DataStore.observe(Message).subscribe((updatedDbMessages) => {
-            if (
-              updatedDbMessages.opType === "UPDATE" ||
-              updatedDbMessages.opType === "CREATE" ||
-              updatedDbMessages.opType === "DELETE"
-            ) {
-              getMessages();
-            }
-          });
         } catch (error) {
           console.log("Error retrieving messages", error);
         }
@@ -36,6 +26,16 @@ const Discussions = () => {
     }
 
     getMessages();
+
+    DataStore.observe(Message).subscribe((updatedDbMessages) => {
+      if (
+        updatedDbMessages.opType === "UPDATE" ||
+        updatedDbMessages.opType === "CREATE" ||
+        updatedDbMessages.opType === "DELETE"
+      ) {
+        getMessages();
+      }
+    });
   }, []);
 
   return (

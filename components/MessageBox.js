@@ -88,7 +88,7 @@ export const MessageBox = () => {
         width="600px"
         clearable
         contentRightStyling={false}
-        placeholder="Type your message..."
+        placeholder="Begin your discussion..."
         value={messageText}
         onChange={(e) => setMessageText(e.target.value)}
         onKeyDown={(e) => {

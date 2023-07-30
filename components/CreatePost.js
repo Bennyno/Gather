@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DataStore, Storage, Auth } from "aws-amplify";
 import { SocialPosts, Users } from "@/models";
 import { Flex, Button, View } from "@aws-amplify/ui-react";
@@ -10,10 +10,47 @@ import styles from "../src/styles/createPost.module.css";
 
 export default function CreatePost() {
   const [PickerOpen, setPickerOpen] = useState(false);
-  const [post, setPosts] = useState([]);
   const [message, setMessage] = useState("");
   const [author, setAuthor] = useState("");
   const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const authUser = await Auth.currentAuthenticatedUser();
+      const authEmail = authUser.attributes.email;
+      const users = await DataStore.query(Users);
+      const user = users.find((user) => user.email === authEmail);
+
+      if (authUser) {
+        users.map((item) => {
+          if (authEmail === item.email) {
+            setImage(item.image);
+            setAuthor(user.username);
+          }
+        });
+      }
+      const { results } = await Storage.list("", { level: "private" });
+      const sortedResults = results.sort(
+        (a, b) => a.lastModified - b.lastModified
+      );
+
+      const s3Images = await Promise.all(
+        sortedResults.map(
+          async (image) => await Storage.get(image.key, { level: "private" })
+        )
+      );
+      const s3Image = s3Images[s3Images.length - 1];
+      setImage(s3Image);
+
+      DataStore.observe(Users).subscribe((user) => {
+        if (user.opType === "UPDATE") {
+          fetchImages();
+        }
+      });
+    };
+
+    fetchImages();
+  }, []);
 
   const createNewPost = async () => {
     const authUser = await Auth.currentAuthenticatedUser();
@@ -25,41 +62,24 @@ export default function CreatePost() {
 
     const user = users.find((user) => user.email === authEmail);
 
-    if (authUser) {
-      if (user) {
-        setAuthor(user.username);
+    if (authUser && user) {
+      if (message === "") return;
 
-        const { results } = await Storage.list("", { level: "private" });
-        const sortedResults = results.sort(
-          (a, b) => a.lastModified - b.lastModified
-        );
-
-        const s3Images = await Promise.all(
-          sortedResults.map(
-            async (image) => await Storage.get(image.key, { level: "private" })
-          )
-        );
-        const s3Image = s3Images[s3Images.length - 1];
-        setImage(s3Image);
-      }
+      await DataStore.save(
+        new SocialPosts({
+          profilePic: image,
+          author: author,
+          message: message,
+          postTime: time,
+          postDate: date,
+          likesCount: 0,
+          sharesCount: 0,
+          crosspostCount: 0,
+          likedBy: [],
+        })
+      );
+      setMessage("");
     }
-
-    if (message === "") return;
-
-    await DataStore.save(
-      new SocialPosts({
-        profilePic: image,
-        author: author,
-        message: message,
-        postTime: time,
-        postDate: date,
-        likesCount: 0,
-        sharesCount: 0,
-        crosspostCount: 0,
-        likedBy: [],
-      })
-    );
-    setMessage("");
   };
 
   const addEmoji = (e) => {

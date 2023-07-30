@@ -9,6 +9,7 @@ import { ImNotification } from "react-icons/im";
 import { IoHomeOutline } from "react-icons/io5";
 import { LiaThListSolid } from "react-icons/lia";
 import { HiUserGroup } from "react-icons/hi";
+import { SiTheconversation } from "react-icons/si";
 import { Storage, DataStore, Auth } from "aws-amplify";
 import { Users } from "@/models";
 
@@ -180,6 +181,7 @@ const Sidebar = () => {
               shrink="0"
               position="relative"
               className={styles.sidebarOption}
+              onClick={() => router.push("/discussions")}
             >
               <Flex
                 width="24px"
@@ -188,7 +190,7 @@ const Sidebar = () => {
                 shrink="0"
                 position="relative"
               >
-                <BsSearch />
+                <SiTheconversation />
               </Flex>
               <Text
                 fontFamily="Inter"
@@ -203,7 +205,7 @@ const Sidebar = () => {
                 position="relative"
                 whiteSpace="pre-wrap"
               >
-                Explore
+                Discussions
               </Text>
             </Flex>
           </Flex>
@@ -239,41 +241,6 @@ const Sidebar = () => {
                   shrink="0"
                   position="relative"
                 >
-                  <ImNotification />
-                </Flex>
-                <Text
-                  fontFamily="Inter"
-                  fontSize="20px"
-                  fontWeight="400"
-                  color="white"
-                  lineHeight="24px"
-                  textAlign="left"
-                  display="block"
-                  letterSpacing="0.01px"
-                  shrink="0"
-                  position="relative"
-                  whiteSpace="pre-wrap"
-                >
-                  Notifications
-                </Text>
-              </Flex>
-              <Flex
-                gap="16px"
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-                shrink="0"
-                position="relative"
-                className={styles.sidebarOption}
-                onClick={() => router.push("/discussions")}
-              >
-                <Flex
-                  width="24px"
-                  height="24px"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                >
                   <LuMessagesSquare />
                 </Flex>
                 <Text
@@ -289,7 +256,7 @@ const Sidebar = () => {
                   position="relative"
                   whiteSpace="pre-wrap"
                 >
-                  Discussions
+                  Messages
                 </Text>
               </Flex>
               <Flex
@@ -324,40 +291,6 @@ const Sidebar = () => {
                   whiteSpace="pre-wrap"
                 >
                   Lists
-                </Text>
-              </Flex>
-              <Flex
-                gap="16px"
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-                shrink="0"
-                position="relative"
-                className={styles.sidebarOption}
-              >
-                <Flex
-                  width="24px"
-                  height="24px"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                >
-                  <HiUserGroup />
-                </Flex>
-                <Text
-                  fontFamily="Inter"
-                  fontSize="20px"
-                  fontWeight="400"
-                  color="white"
-                  lineHeight="24px"
-                  textAlign="left"
-                  display="block"
-                  letterSpacing="0.01px"
-                  shrink="0"
-                  position="relative"
-                  whiteSpace="pre-wrap"
-                >
-                  Group
                 </Text>
               </Flex>
             </Flex>
