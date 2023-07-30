@@ -1,17 +1,14 @@
-import { Flex, Text, View, Icon, Divider, Image } from "@aws-amplify/ui-react";
-import { useRouter } from "next/navigation";
-import styles from "../src/styles/sidebar.module.css";
-import Settings from "./Settings";
 import { useState, useEffect } from "react";
-import { BsSearch } from "react-icons/bs";
+import { Storage, DataStore, Auth } from "aws-amplify";
+import { Flex, Text, View, Icon, Divider, Image } from "@aws-amplify/ui-react";
+import { Users } from "@/models";
+import Settings from "./Settings";
+import { useRouter } from "next/navigation";
 import { LuMessagesSquare } from "react-icons/lu";
-import { ImNotification } from "react-icons/im";
 import { IoHomeOutline } from "react-icons/io5";
 import { LiaThListSolid } from "react-icons/lia";
-import { HiUserGroup } from "react-icons/hi";
 import { SiTheconversation } from "react-icons/si";
-import { Storage, DataStore, Auth } from "aws-amplify";
-import { Users } from "@/models";
+import styles from "../src/styles/sidebar.module.css";
 
 const Sidebar = () => {
   const router = useRouter();

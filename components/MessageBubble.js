@@ -1,9 +1,9 @@
-import { Users, Message } from "@/models";
-import { Flex, Text, Button } from "@aws-amplify/ui-react";
-import styles from "../src/styles/messages.module.css";
 import { useState } from "react";
-import MyIcon from "./MyIcon";
 import { Auth, DataStore } from "aws-amplify";
+import { Flex, Text, Button } from "@aws-amplify/ui-react";
+import { Users, Message } from "@/models";
+import MyIcon from "./MyIcon";
+import styles from "../src/styles/messages.module.css";
 
 const MessageBubble = ({ id, name, message, messageTime, messageDate }) => {
   const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);

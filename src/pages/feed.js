@@ -1,8 +1,8 @@
-import { View, Collection, Grid } from "@aws-amplify/ui-react";
-import Post from "../../components/Post";
-import { SocialPosts } from "@/models";
-import { DataStore, Predicates, SortDirection, Auth } from "aws-amplify";
 import { useEffect, useState } from "react";
+import { DataStore, Predicates, SortDirection, Auth } from "aws-amplify";
+import { View, Collection, Grid } from "@aws-amplify/ui-react";
+import { SocialPosts } from "@/models";
+import Post from "../../components/Post";
 import Sidebar from "../../components/Sidebar";
 import CreatePost from "../../components/CreatePost";
 import styles from "../../src/styles/feed.module.css";

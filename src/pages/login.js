@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Auth, DataStore } from "aws-amplify";
 import {
   Flex,
   View,
@@ -6,10 +7,9 @@ import {
   useAuthenticator,
   Image,
 } from "@aws-amplify/ui-react";
-import { Auth, DataStore } from "aws-amplify";
 import { useRouter } from "next/navigation";
-import styles from "../styles/login.module.css";
 import { Users } from "@/models";
+import styles from "../styles/login.module.css";
 
 const formFields = {
   signUp: {

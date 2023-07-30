@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Storage, DataStore, Auth } from "aws-amplify";
 import {
   Flex,
   Icon,
@@ -8,7 +9,6 @@ import {
   TextField,
   Button,
 } from "@aws-amplify/ui-react";
-import { Storage, DataStore, Auth } from "aws-amplify";
 import { FileUploader } from "@aws-amplify/ui-react";
 import { Users } from "@/models";
 import { useRouter } from "next/navigation";

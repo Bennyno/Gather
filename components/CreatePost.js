@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { DataStore, Storage, Auth } from "aws-amplify";
-import { SocialPosts, Users } from "@/models";
 import { Flex, Button, View } from "@aws-amplify/ui-react";
+import { SocialPosts, Users } from "@/models";
 import { Textarea } from "@nextui-org/react";
-import EmojiPicker from "emoji-picker-react";
 import { EmojiButton } from "./EmojiButton";
 import { EmojiIcon } from "./EmojiIcon";
+import EmojiPicker from "emoji-picker-react";
 import styles from "../src/styles/createPost.module.css";
 
 export default function CreatePost() {

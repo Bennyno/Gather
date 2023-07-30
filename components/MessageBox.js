@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Auth, Storage, DataStore } from "aws-amplify";
 import { Flex, View } from "@aws-amplify/ui-react";
+import { Users, Message } from "@/models";
 import { Input, Avatar } from "@nextui-org/react";
 import { SendButton } from "./SendButton";
 import { SendIcon } from "./SendIcon";
 import { EmojiIcon } from "./EmojiIcon";
 import { EmojiButton } from "./EmojiButton";
 import EmojiPicker from "emoji-picker-react";
-import { Users, Message } from "@/models";
 import styles from "../src/styles/messages.module.css";
 
 export const MessageBox = () => {
@@ -20,9 +20,6 @@ export const MessageBox = () => {
   useEffect(() => {
     const fetchImages = async () => {
       const authUser = await Auth.currentAuthenticatedUser();
-      const userId = authUser.attributes.sub;
-      const authEmail = authUser.attributes.email;
-      const original = await DataStore.query(Users);
 
       if (authUser) {
         const { results } = await Storage.list("", { level: "private" });

@@ -1,8 +1,8 @@
+import { useState } from "react";
+import { DataStore, Auth } from "aws-amplify";
 import { Flex, Text, Image, Button } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
-import { DataStore, Auth, Predicates } from "aws-amplify";
 import { SocialPosts, Users } from "@/models";
-import { useState, useEffect } from "react";
+import MyIcon from "./MyIcon";
 import styles from "../src/styles/post.module.css";
 
 export default function Post({
@@ -17,7 +17,6 @@ export default function Post({
   crosspostCount,
   likedBy,
 }) {
-  const [likes, setLikes] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
   const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
   const [postIsCreated, setPostIsCreated] = useState(false);
@@ -39,7 +38,7 @@ export default function Post({
     });
 
     if (isLiked) {
-      const oneLessLike = await DataStore.save(
+      await DataStore.save(
         SocialPosts.copyOf(original, (updated) => {
           updated.likesCount = Math.max(original.likesCount - 1, 0);
           updated.likedBy = unlikedBy;
@@ -49,7 +48,7 @@ export default function Post({
       setIsLiked(!isLiked);
     } else {
       const updatedLikedBy = [...likedBy, user.username];
-      const oneMoreLike = await DataStore.save(
+      await DataStore.save(
         SocialPosts.copyOf(original, (updated) => {
           updated.likesCount = Math.max(original.likesCount + 1, 0);
           updated.likedBy = updatedLikedBy;

@@ -1,11 +1,11 @@
-import { Flex, View, Grid, Collection } from "@aws-amplify/ui-react";
+import { useState, useEffect } from "react";
+import { View, Grid, Collection } from "@aws-amplify/ui-react";
+import { DataStore, Predicates, SortDirection, Auth } from "aws-amplify";
+import { Message } from "@/models";
 import { MessageBox } from "../../components/MessageBox";
 import MessageBubble from "../../components/MessageBubble";
 import Sidebar from "../../components/Sidebar";
 import styles from "../styles/messages.module.css";
-import { Message } from "@/models";
-import { useState, useEffect } from "react";
-import { DataStore, Predicates, SortDirection, Auth } from "aws-amplify";
 
 const Discussions = () => {
   const [message, setMessage] = useState([]);
