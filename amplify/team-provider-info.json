@@ -1,40 +1,19 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-mysocialmedia-staging-170930-authRole",
-      "UnauthRoleArn": "arn:aws:iam::075126470395:role/amplify-mysocialmedia-staging-170930-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::075126470395:role/amplify-mysocialmedia-staging-170930-authRole",
+      "AuthRoleName": "amplify-gather-staging-160024-authRole",
+      "UnauthRoleArn": "arn:aws:iam::075126470395:role/amplify-gather-staging-160024-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::075126470395:role/amplify-gather-staging-160024-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-mysocialmedia-staging-170930-deployment",
-      "UnauthRoleName": "amplify-mysocialmedia-staging-170930-unauthRole",
-      "StackName": "amplify-mysocialmedia-staging-170930",
-      "StackId": "arn:aws:cloudformation:us-east-1:075126470395:stack/amplify-mysocialmedia-staging-170930/5e907440-1e7b-11ee-baac-12b6a2542413",
-      "AmplifyAppId": "d48gafhmj9q3x"
+      "DeploymentBucketName": "amplify-gather-staging-160024-deployment",
+      "UnauthRoleName": "amplify-gather-staging-160024-unauthRole",
+      "StackName": "amplify-gather-staging-160024",
+      "StackId": "arn:aws:cloudformation:us-east-1:075126470395:stack/amplify-gather-staging-160024/320d7490-2ef2-11ee-b66c-0e1a119cc84f",
+      "AmplifyAppId": "d2cnm91rhhwqui"
     },
     "categories": {
       "auth": {
-        "mysocialmedia": {}
-      },
-      "storage": {
-        "s3mysocialmediastorage": {}
-      },
-      "notifications": {
-        "Pinpoint": {
-          "Name": "mysocialmediamessaging-staging",
-          "Id": "d38634180d554f10b64b06f9b8d31833",
-          "Region": "us-east-1"
-        }
-      },
-      "analytics": {
-        "Pinpoint": {
-          "Name": "mysocialmediamessaging-staging",
-          "Id": "d38634180d554f10b64b06f9b8d31833",
-          "Region": "us-east-1"
-        },
-        "mysocialmediamessaging": {}
-      },
-      "api": {
-        "mysocialmedia": {}
+        "Gather": {}
       }
     }
   }

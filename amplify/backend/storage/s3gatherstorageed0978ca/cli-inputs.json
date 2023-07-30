@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3gatherstorageed0978ca",
+  "bucketName": "gather-storage-ed0978ca",
+  "policyUUID": "73ae38a5",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

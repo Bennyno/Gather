@@ -1,33 +1,24 @@
 export type AmplifyDependentResourcesAttributes = {
-  "analytics": {
-    "mysocialmediamessaging": {
-      "Id": "string",
-      "Region": "string",
-      "appName": "string"
-    }
-  },
   "api": {
-    "mysocialmedia": {
+    "Gather": {
       "GraphQLAPIEndpointOutput": "string",
       "GraphQLAPIIdOutput": "string",
       "GraphQLAPIKeyOutput": "string"
     }
   },
   "auth": {
-    "mysocialmedia": {
+    "Gather": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
-      "HostedUIDomain": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
-      "OAuthMetadata": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
     }
   },
   "storage": {
-    "s3mysocialmediastorage": {
+    "s3gatherstorageed0978ca": {
       "BucketName": "string",
       "Region": "string"
     }

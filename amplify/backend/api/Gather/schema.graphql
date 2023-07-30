@@ -1,0 +1,28 @@
+type Message @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  message: String
+  messageTime: AWSTime
+  messageDate: AWSDate
+}
+
+type Users @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  username: String
+  email: String
+  image: String
+}
+
+type SocialPosts @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  message: String
+  author: String
+  profilePic: String
+  postTime: AWSTime
+  postDate: AWSDate
+  sharesCount: Int
+  likesCount: Int
+  crosspostCount: Int
+  likedBy: [String]!
+}

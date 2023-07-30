@@ -1,32 +1,12 @@
 {
-  "analytics": {
-    "mysocialmediamessaging": {
-      "providerPlugin": "awscloudformation",
-      "service": "Pinpoint"
-    }
-  },
   "api": {
-    "mysocialmedia": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "mysocialmedia"
-        }
-      ],
+    "Gather": {
+      "dependsOn": [],
       "output": {
         "authConfig": {
           "additionalAuthenticationProviders": [
             {
               "authenticationType": "AWS_IAM"
-            },
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authmysocialmedia"
-              }
             }
           ],
           "defaultAuthentication": {
@@ -43,7 +23,7 @@
     }
   },
   "auth": {
-    "mysocialmedia": {
+    "Gather": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -61,9 +41,7 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [],
-        "socialProviders": [
-          "GOOGLE"
-        ],
+        "socialProviders": [],
         "usernameAttributes": [
           "EMAIL"
         ],
@@ -75,66 +53,8 @@
       "service": "Cognito"
     }
   },
-  "notifications": {
-    "mysocialmediamessaging": {
-      "channels": [
-        "InAppMessaging"
-      ],
-      "service": "Pinpoint"
-    }
-  },
-  "parameters": {
-    "AMPLIFY_analytics_Pinpoint_Id": {
-      "usedBy": [
-        {
-          "category": "analytics",
-          "resourceName": "Pinpoint"
-        }
-      ]
-    },
-    "AMPLIFY_analytics_Pinpoint_Name": {
-      "usedBy": [
-        {
-          "category": "analytics",
-          "resourceName": "Pinpoint"
-        }
-      ]
-    },
-    "AMPLIFY_analytics_Pinpoint_Region": {
-      "usedBy": [
-        {
-          "category": "analytics",
-          "resourceName": "Pinpoint"
-        }
-      ]
-    },
-    "AMPLIFY_notifications_Pinpoint_Id": {
-      "usedBy": [
-        {
-          "category": "notifications",
-          "resourceName": "Pinpoint"
-        }
-      ]
-    },
-    "AMPLIFY_notifications_Pinpoint_Name": {
-      "usedBy": [
-        {
-          "category": "notifications",
-          "resourceName": "Pinpoint"
-        }
-      ]
-    },
-    "AMPLIFY_notifications_Pinpoint_Region": {
-      "usedBy": [
-        {
-          "category": "notifications",
-          "resourceName": "Pinpoint"
-        }
-      ]
-    }
-  },
   "storage": {
-    "s3mysocialmediastorage": {
+    "s3gatherstorageed0978ca": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"

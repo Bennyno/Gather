@@ -65,6 +65,7 @@ export default function ProfileCard() {
       const users = await DataStore.query(Users);
       const user = users.find((user) => user.email === authEmail);
       const index = users.indexOf(user);
+      // console.log("user", user.email);
 
       if (user) {
         const updateUser = await DataStore.save(
