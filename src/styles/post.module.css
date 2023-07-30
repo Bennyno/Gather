@@ -1,6 +1,7 @@
 .postBody {
     background: black;
     border: solid white;
+    width: 600px;
 }
 
 .postIcons:hover {
@@ -20,4 +21,10 @@
 
 .likeButton {
     fill: white;
+}
+
+@media (max-width: 1100px) {
+    .postBody {
+        width: 540px;
+    }
 }

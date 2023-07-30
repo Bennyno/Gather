@@ -1,4 +1,4 @@
-type SocialPosts @model @auth(rules: [{allow: private}, {allow: public}]) {
+type SocialPosts @model @auth(rules: [{allow: private}, {allow: public}, {allow: owner}]) {
   id: ID!
   message: String
   author: String
@@ -19,7 +19,7 @@ type Users @model @auth(rules: [{allow: public}, {allow: private}]) {
   image: String
 }
 
-type Message @model @auth(rules: [{allow: private}, {allow: public}]) {
+type Message @model @auth(rules: [{allow: private}, {allow: public}, {allow: owner}]) {
   id: ID!
   name: String
   message: String
