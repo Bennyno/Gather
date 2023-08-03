@@ -11,4 +11,4 @@ Gather! is a full-stack project created for the Hashnode x AWS Amplify hackathon
 
 • Hosting: AWSAmplify Hosting, Route53 Domain Name System
 
-Feel free to check out the live site here: [Gather](https://www.gathernow.net/)
+## Feel free to check out the live site here: [Gather](https://www.gathernow.net/)
